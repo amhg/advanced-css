@@ -1,0 +1,44 @@
+@use "../abstracts/_variables.scss" as variables; 
+
+.composition {
+    position: relative;
+
+    &__photo {
+        width: 55%;
+        box-shadow: 0 1.5rem 4rem rgba(variables.$color-black, .4);
+        border-radius: 2px;
+        position: absolute;
+        z-index: 10;
+        transition: all .3s;
+        outline-offset: 2rem; //it gives the space btw the outline border
+
+        &--p1 {
+            left: 0;
+            top: -2rem;
+        }
+
+        &--p2 {
+            right: 0;
+            top: 2rem;
+        }
+
+        &--p3 {
+            right: 20%;
+            top: 10rem;
+        }
+
+        &:hover {
+            outline: 1rem solid variables.$color-primary;
+            transform: scale(1.05) translateY(-5rem);
+            box-shadow: 0 1.5rem 4rem rgba(variables.$color-black, .5);
+            z-index: 20; //it will be displayed on top
+        }
+
+    }
+
+    &:hover &__photo:not(:hover) {
+        transform: scale(.95);
+    }
+
+    //composition:hover composition__photo:not(:hover)
+}
